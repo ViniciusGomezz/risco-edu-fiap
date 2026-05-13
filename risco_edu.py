@@ -3,14 +3,9 @@ import pandas as pd
 import plotly.graph_objects as go
 import joblib
 
-st.set_page_config(
-    page_title="Passos Mágicos - Risco Educacional",
-    page_icon="🎓",
-    layout="wide"
-)
-
 st.markdown("""
 <style>
+
 .main {
     background-color: #F4F6F9;
 }
@@ -19,6 +14,24 @@ st.markdown("""
     padding-top: 2rem;
 }
 
+/* TEXTOS GERAIS */
+html, body, [class*="css"] {
+    color: #1E1E1E;
+    font-family: sans-serif;
+}
+
+/* TÍTULOS */
+h1, h2, h3 {
+    color: #0F4C8A;
+}
+
+/* LABELS */
+label {
+    color: #1E1E1E !important;
+    font-weight: 600;
+}
+
+/* CARDS */
 .card {
     background-color: white;
     padding: 24px;
@@ -27,6 +40,7 @@ st.markdown("""
     margin-bottom: 18px;
 }
 
+/* KPI CARDS */
 .metric-card {
     background-color: white;
     padding: 20px;
@@ -46,6 +60,28 @@ st.markdown("""
     font-weight: 700;
 }
 
+/* INPUTS */
+.stSelectbox div[data-baseweb="select"] {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}
+
+.stSelectbox * {
+    color: black !important;
+}
+
+/* SLIDERS */
+.stSlider * {
+    color: black !important;
+}
+
+/* DATAFRAME */
+[data-testid="stDataFrame"] {
+    color: black;
+}
+
+/* BOTÃO */
 .stButton>button {
     background-color: #1F5FA8;
     color: white;
@@ -60,10 +96,14 @@ st.markdown("""
     background-color: #2E74C9;
     color: white;
 }
+
+/* SIDEBAR */
+section[data-testid="stSidebar"] * {
+    color: black !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
-
-
 modelo = joblib.load("modelo_risco_educacional.pkl")
 features_modelo = joblib.load("features_modelo.pkl")
 
