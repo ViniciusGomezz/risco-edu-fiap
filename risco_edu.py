@@ -6,85 +6,86 @@ import joblib
 st.markdown("""
 <style>
 
-.main {
+/* ÁREA GERAL */
+.stApp {
     background-color: #F4F6F9;
-}
-
-.block-container {
-    padding-top: 2rem;
-}
-
-/* TEXTOS GERAIS */
-html, body, [class*="css"] {
     color: #1E1E1E;
-    font-family: sans-serif;
 }
 
-/* TÍTULOS */
-h1, h2, h3 {
-    color: #0F4C8A;
+/* CONTAINER PRINCIPAL MAIS LARGO */
+.block-container {
+    max-width: 95% !important;
+    padding-top: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
-/* LABELS */
-label {
+/* TEXTOS */
+h1, h2, h3, h4, h5, h6, p, span, label, div {
     color: #1E1E1E !important;
-    font-weight: 600;
+}
+
+h1, h2, h3 {
+    color: #0F4C8A !important;
+}
+
+/* SUBTÍTULO */
+[data-testid="stMarkdownContainer"] p {
+    color: #1E1E1E !important;
+    font-size: 16px;
 }
 
 /* CARDS */
-.card {
-    background-color: white;
-    padding: 24px;
+.card, .metric-card {
+    background-color: #FFFFFF;
+    padding: 22px;
     border-radius: 18px;
     box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
     margin-bottom: 18px;
 }
 
-/* KPI CARDS */
-.metric-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 18px;
-    box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
-    text-align: center;
-}
-
+/* KPI */
 .metric-title {
-    color: #5F6B7A;
+    color: #5F6B7A !important;
     font-size: 15px;
 }
 
 .metric-value {
-    color: #0F4C8A;
-    font-size: 32px;
+    color: #0F4C8A !important;
+    font-size: 30px;
     font-weight: 700;
 }
 
-/* INPUTS */
-.stSelectbox div[data-baseweb="select"] {
-    background-color: white;
-    color: black;
-    border-radius: 10px;
+/* SELECTBOX */
+div[data-baseweb="select"] > div {
+    background-color: #FFFFFF !important;
+    color: #1E1E1E !important;
+    border: 1px solid #D0D7DE !important;
+    border-radius: 10px !important;
 }
 
-.stSelectbox * {
-    color: black !important;
+div[data-baseweb="select"] span {
+    color: #1E1E1E !important;
+}
+
+/* DROPDOWN MENU */
+ul[role="listbox"] {
+    background-color: #FFFFFF !important;
+}
+
+ul[role="listbox"] li {
+    color: #1E1E1E !important;
 }
 
 /* SLIDERS */
-.stSlider * {
-    color: black !important;
-}
-
-/* DATAFRAME */
-[data-testid="stDataFrame"] {
-    color: black;
+.stSlider label, .stSlider span, .stSlider div {
+    color: #1E1E1E !important;
 }
 
 /* BOTÃO */
 .stButton>button {
-    background-color: #1F5FA8;
-    color: white;
+    background-color: #1F5FA8 !important;
+    color: white !important;
     border-radius: 12px;
     height: 3.2em;
     font-size: 18px;
@@ -93,13 +94,61 @@ label {
 }
 
 .stButton>button:hover {
-    background-color: #2E74C9;
-    color: white;
+    background-color: #2E74C9 !important;
+    color: white !important;
 }
 
 /* SIDEBAR */
+section[data-testid="stSidebar"] {
+    background-color: #FFFFFF !important;
+}
+
 section[data-testid="stSidebar"] * {
-    color: black !important;
+    color: #1E1E1E !important;
+}
+
+/* ESCONDER FAIXA BRANCA VAZIA CASO EXISTA */
+.element-container:has(.card:empty) {
+    display: none;
+}
+/* MENU ABERTO DO SELECTBOX */
+div[data-baseweb="popover"] {
+    background-color: #FFFFFF !important;
+}
+
+div[data-baseweb="popover"] * {
+    background-color: #FFFFFF !important;
+    color: #1E1E1E !important;
+}
+
+div[role="listbox"] {
+    background-color: #FFFFFF !important;
+}
+
+div[role="option"] {
+    background-color: #FFFFFF !important;
+    color: #1E1E1E !important;
+}
+
+div[role="option"]:hover {
+    background-color: #EAF2FB !important;
+    color: #1E1E1E !important;
+}
+
+li[role="option"] {
+    background-color: #FFFFFF !important;
+    color: #1E1E1E !important;
+}
+
+li[role="option"]:hover {
+    background-color: #EAF2FB !important;
+    color: #1E1E1E !important;
+}
+
+/* SETA DO SELECTBOX */
+.stSelectbox svg {
+    fill: #1E1E1E !important;
+    color: #1E1E1E !important;
 }
 
 </style>
@@ -109,9 +158,7 @@ features_modelo = joblib.load("features_modelo.pkl")
 
 
 st.title("🎓 Previsão de Risco Educacional")
-st.write(
-    """
-    Aplicação preditiva para estimar a probabilidade de risco educacional
+st.write("""Aplicação preditiva para estimar a probabilidade de risco educacional
     com base em indicadores educacionais, psicossociais e psicopedagógicos.
     """
 )
