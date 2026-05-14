@@ -1,4 +1,4 @@
-# risco-edu-fiap
+# Aplicativo risco-edu-fiap
 Projeto de Datathon da FIAP que prevê o risco educacional de alunos do projeto Passos Magicos
 # Passos Mágicos - Previsão de Risco Educacional
 
@@ -28,3 +28,6 @@ O modelo apresentou:
 
 Aplicação disponível em:
 https://risco-edu-fiap-du9roe2g3unk68sun2mjos.streamlit.app/
+
+## Notebook
+Para análise completa do projeto veja o notebook anexado TECH-CHLLG-5-DATATHON.ipynb
